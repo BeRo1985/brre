@@ -21,7 +21,7 @@ And BRRE can process 0-based null terminated C/C++ and 1-based (Object-)Pascal s
 
 BRRE features a prefilter boolean expression string generation feature in two variants, once as simple variant and once as SQL variant. For example, BRRE converts `{{{/(hello|hi) world[a-z]+and you/PO}}}` into the prefilter boolean expression string `{{{("hello world" OR "hi world") AND "and you"}}}` and into the prefilter boolean short expression string `{{{("hello world"|"hi world")and you}}}` and into the prefilter SQL boolean full text search expression string `{{{+("hello world" "hi world") +("and you")}}}` and into the prefilter boolean SQL expression string `{{{(((field LIKE "%hello world%") OR (field like "%hi world%")) AND (field like "%and you%"))}}}` where the field name is freely choosable, and BRRE converts `{{{/(hello|hi) world[a-z]+and you/P}}}` without O modifier flag into the prefilter boolean expression string `{{{("hello world" OR "hi world") AND * AND "and you"}}}` and into the prefilter boolean short expression string `{{{(hello world|hi world)*and you}}}`, so with wildcards then now. This feature can reduce the number of actual regular expression searches significantly, if you combine it with the data storage on the upper level (for example with with a text trigram index). 
 
-For a first-try-performance-comparsion see [Benchmark]
+For a first-try-performance-comparsion see [Benchmark](https://code.google.com/p/brre/wiki/Benchmark)
 
 IRC: #brre on freenode
 
