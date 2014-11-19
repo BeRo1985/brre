@@ -1,0 +1,20 @@
+#summary Regular expression engine benchmark table
+
+Applied on 38.5 megabyte big input file from http://lh3lh3.users.sourceforge.net/reb.shtml at a whole-file-loaded-into-the-RAM-base on a Dell XPS 17 L702x notebook with a quadcore Intel i7 2630QM CPU, 8 GB SO-DIMM DDR3 1333 MHz RAM and 64-bit Windows 7. The benchmark test binaries are built with Borland Delphi 7, except the PCRE benchmark, which is a Delphi + C/C++ hybrid construct. 
+
+|| || *BRRE* (without submatches) || *BRRE* (with submatches) || *`DIPerlRegEx`* || *`DIDFARegEx`* || *`regex.pp`* (whole matches only) || *`PCRE`* || *`RegExpr.pas`* || Chrome 17.0.963.46 || Firefox 10.0 || Opera 11.61 || Safari 5.1.3 ||
+|| `/installation/` || *31 ms* || *31 ms* || 156 ms || 265 ms || 78 ms || 655 ms || 85582 ms || 42 ms || 43 ms || 47 ms || 42 ms ||
+|| `/([a-zA-Z][a-zA-Z0-9]*)://([^ /]+)(/[^ ]*)?/` || *172 ms* || 202 ms || 5132 ms || ^(bug: no matches)^ || 6458 ms || 46566  ms || 675546 ms || 821 ms || 634 ms || 360 ms || 592 ms ||
+|| `/([^ @]+)@([^ @]+)/` || *172 ms* || *172 ms* || 8923 ms || 12620 ms || 11279 ms || 74257 ms || 598483 ms || 1135 ms || 787 ms || 460 ms || 801 ms ||
+|| `/([0-9][0-9]?)/([0-9][0-9]?)/([0-9][0-9]([0-9][0-9])?)/` || 94 ms ||  109 ms || 187 ms || 234 ms || 1654 ms || 21684 ms || 26270 ms || *56 ms* || 165 ms || 68 ms || 164 ms ||
+|| `/([a-zA-Z][a-zA-Z0-9]*)://([^ /]+)(/[^ ]*)?|([^ @]+)@([^ @]+)/` || *171 ms* || 219 ms || 15273 ms || 19563 ms || 18002 ms || 114630 ms || 1275168 ms || 1868 ms || 1381 ms || 787 ms || 1383 ms ||
+
+You can find the, for the public in a single file combined, source code for this benchmark at http://code.google.com/p/brre/source/browse/trunk/src/BRREBenchmark.dpr in the SVN repository and the browser benchmark at http://rootserver.rosseaux.net/projects/brre/webbenchmark/ 
+
+ * *BRRE* - Perl/PCRE-style flavor, without capturing of submatches, this mode equals to the output of regex.pp
+ * *BRRE* - Perl/PCRE-style flavor, with capturing of submatches, this mode equals to the output of the other engines here except regex.pp and DIDFARegEx
+ * DIRegEx, *DIPerlRegEx* - Perl/PCRE-style flavor
+ * DIRegEx, *DIDFARegEx* - POSIX flavor, so the output from this differences to all other outputs here
+ * *regex.pp* - Perl/PCRE-style flavor, from FPC SVN trunk, it can capture only whole matches, no submatches
+ * *PCRE* - Perl/PCRE-style flavor
+ * *`RegExpr.pas`* - Perl/PCRE-style flavor
