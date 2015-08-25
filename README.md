@@ -1,3 +1,6 @@
+
+## For my new regular expression engine see [FLRE](https://github.com/BeRo1985/flre) which is preferred now over BRRE, since FLCE with its better structured code is more easily maintainable and therefore also overall less error-prone regarding bugs. But FLRE doesn't support irregular expression features like backreferences, lookaheads, lookbehinds and so on, if you do need these, then BRRE will be more preferred, but please, disable the buggy DFA stuff at BRRE then.
+
 BRRE ( **B** e **R** o **R** egularExpression **E** ngine) is a fast, safe and efficient regular expression library, which is implemented in Object Pascal (Delphi and Free Pascal) but which is even usable from other languages like C/C++ and so on. 
 
 It implements almost all the common Perl and PCRE features and syntactic sugars. It also finds the leftmost-first match, the same match that Perl and PCRE would, and can return submatch information, and has support for backtracking stuff as backreferences and so on. But it also features a modifier flag for a yet experimental POSIX-style leftmost-longest match behaviour mode. 
