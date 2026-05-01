@@ -1,5 +1,8 @@
+> [!IMPORTANT]
+> The primary repository has moved to [git.rosseaux.net/BeRo1985/brre](https://git.rosseaux.net/BeRo1985/brre).
+> This GitHub repository is kept up-to-date via push mirroring.
 
-## For my new regular expression engine see [FLRE](https://github.com/BeRo1985/flre) which is preferred now over BRRE, since FLCE with its better structured code is more easily maintainable and therefore also overall less error-prone regarding bugs. But FLRE doesn't support irregular expression features like backreferences, lookaheads, lookbehinds and so on, if you do need these, then BRRE will be more preferred, but please, disable the buggy DFA stuff at BRRE then.
+## For my new regular expression engine see [FLRE](https://git.rosseaux.net/BeRo1985/flre) which is preferred now over BRRE, since FLCE with its better structured code is more easily maintainable and therefore also overall less error-prone regarding bugs. But FLRE doesn't support irregular expression features like backreferences, lookaheads, lookbehinds and so on, if you do need these, then BRRE will be more preferred, but please, disable the buggy DFA stuff at BRRE then.
 
 BRRE ( **B** e **R** o **R** egularExpression **E** ngine) is a fast, safe and efficient regular expression library, which is implemented in Object Pascal (Delphi and Free Pascal) but which is even usable from other languages like C/C++ and so on. 
 
